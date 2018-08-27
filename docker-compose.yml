@@ -2,7 +2,7 @@ version: '2'
 
 services:
   consul:
-    container_name: consul
+    # container_name: consul
     image: consul
     ports:
       - "8300"
@@ -10,7 +10,7 @@ services:
       - "8500"
     restart: always
   registrator:
-    container_name: registrator
+    # container_name: registrator
     image: gliderlabs/registrator:master
     volumes:
       - "/var/run/docker.sock:/tmp/docker.sock"
@@ -19,7 +19,7 @@ services:
     depends_on:
       - consul
   redis:
-    container_name: redis
+    # container_name: redis
     image: redis
     ports:
       - 6379
@@ -27,7 +27,7 @@ services:
     depends_on:
       - registrator
   test:
-    container_name: consul-test
+    # container_name: consul-test
     build: ./test
     image: anthcourtney/consul-test
     depends_on:
